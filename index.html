@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Открытка с днем рождения мама</title>
+<style>
+  /* Общие стили */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffe0e5, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* Контейнер открытки */
+  .card {
+    background-color: #fff8f9;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Заголовок */
+  h1 {
+    font-size: 2.5em;
+    color: #d6336c;
+    margin-bottom: 20px;
+  }
+
+  /* Пожелания */
+  .wishes {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.5em;
+  }
+
+  /* Слайдер фото */
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom:20px;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+   /* Можно добавить тень или рамку для фото */
+   padding:10px
+   ;
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   }
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+/* Фото в презентации - адаптивно */
+img {
+   max-width:100%;
+   height:auto; 
+   border-radius:10px; 
+}
+
+/* Кнопки навигации */
+.nav-btn {
+ position:absolute; 
+ top:auto; 
+ bottom:-20px; 
+ width:auto; 
+ padding:10px; 
+ background:#d6336c; 
+ color:#fff; 
+ border:none; 
+ border-radius:50%; 
+ cursor:pointer; 
+ font-size:1.2em; 
+ transition:.3s ease; 
+}
+.prev { left:-40px;}
+.next { right:-40px;}
+.nav-btn:hover { background:#a52a4a;}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>С днем рождения мама!</h1>
+<div class="wishes">
+<p>Желаю тебе счастья, здоровья и любви! Пусть каждый день приносит радость и улыбки. Ты — самая лучшая мама на свете!</p>
+</div>
+
+<!-- Фото презентация -->
+<div class="slider-container">
+<div class="slides" id="slides">
+<!-- Здесь вставляйте свои фото в виде слайдов -->
+<!-- Пример:
+<div class="slide"><img src="your-photo1.jpg" alt="Фото"></div>
+-->
+<!-- По умолчанию добавим пустые строки для ваших фото -->
+ <div class="slide"><img src="фото.jpg" alt="Фото"></div>
+<div class="slide"><img src="1.jpg" alt="Фото"></div>
+<div class="slide"><img src="2.jpg" alt="Фото"></div>
+<div class="slide"><img src="3.jpg" alt="Фото"></div>
+<div class="slide"><img src="4.jpg" alt="Фото"></div>
+</div>
+
+<!-- Навигационные кнопки -->
+<button class="nav-btn prev" id="prevBtn">&#10094;</button>
+<button class="nav-btn next" id="nextBtn">&#10095;</button>
+
+</div>
+
+<!-- Можно добавить дополнительные пожелания или поздравления ниже -->
+<div class="additional-wishes">
+<h2>Дополнительные пожелания:</h2>
+<ul style="text-align:left;">
+<li>Пусть сбудутся все мечты!</li>
+<li>Будь всегда такой же красивой и любимой!</li>
+<li>Здоровья и счастья тебе на долгие годы!</li>
+<li>Пусть каждый день будет наполнен радостью!</li>
+<li>Люблю тебя очень сильно!</li>
+<li>Пусть удача всегда будет рядом!</li>
+<li>Пусть дом будет полон тепла и уюта!</li>
+<li>Желаю исполнения всех желаний!</li>
+<li>Будь счастливой и любимой!</li>
+<li>Пусть жизнь радует тебя каждый день!</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+// Скрипт для слайд-шоу
+const slides = document.getElementById('slides');
+const totalSlides = slides.children.length;
+
+let currentIndex =0;
+
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function showSlide(index) {
+ if(index<0) index=totalSlides-1;
+ if(index>=totalSlides) index=0;
+
+ slides.style.transform = 'translateX(' + (-index*100) + '%)';
+ currentIndex=index;
+}
+
+prevBtn.addEventListener('click', ()=> {
+ showSlide(currentIndex -1);
+});
+
+nextBtn.addEventListener('click', ()=> {
+ showSlide(currentIndex +1);
+});
+
+// Автоматическая прокрутка (по желанию)
+// setInterval(()=>{showSlide(currentIndex+1)},3000);
+
+// Можно добавить возможность вставлять свои фото через prompt или через изменение src вручную
+// Например:
+document.querySelectorAll('.slide img').forEach((img, index)=>{
+ // Вставьте свои ссылки сюда
+ // Пример:
+ // if(index===0) img.src='https://example.com/photo1.jpg';
+});
+</script>
+
+</body>
+</html>
